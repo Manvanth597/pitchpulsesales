@@ -1,0 +1,548 @@
+{
+  "clients": [
+    {
+      "id": "13ed3311-7425-4ff4-8d02-14f86297b66d",
+      "companyName": "new age indian Startups established within last 2-3 years exploring ways to bolster online presence, consumer brands who re establishing themselves newly in indian market, new ai tech startups in bangaore or gurgaon or pune or hyderabad, the tech capitals of india.",
+      "stage": "awareness",
+      "pulsePlans": [],
+      "debriefs": [],
+      "evolvingPitch": {
+        "coldCallOpener": "Hi {Prospect Name}, this is {My Name} from NKW Global. I noticed your company is a {new age startup/consumer brand establishing in India/AI tech startup} and we specialize in helping businesses like yours quickly establish a robust digital presence. Do you have a quick minute?",
+        "discoveryQuestions": [
+          "What's the biggest hurdle you're facing right now in getting your brand or product effectively in front of your target audience?",
+          "How are you currently handling key areas like your website development, branding, or social media efforts?",
+          "Looking ahead, what are your top 1-2 strategic goals for your digital presence over the next 6-12 months?",
+          "What resources or expertise do you feel you're currently lacking to hit those critical digital objectives?",
+          "How important is it for your team to have a consistent, high-performing digital infrastructure and brand image right from the start?"
+        ],
+        "coreNarrative": "Many new age startups and growing brands struggle with getting their digital presence built right from day one – whether it's inconsistent branding, unreliable development, or just figuring out where to start. At NKW Global, we're a team of engineers, designers, and marketers who partner with you to build those critical digital systems and brand assets, ensuring they're precise, performant, and built to last, not just for optics.",
+        "commonObjections": [
+          "We already have a team handling this internally.",
+          "Your pricing model seems less predictable than what we're used to.",
+          "We're not ready for a major digital overhaul or partnership right now.",
+          "We're exploring options with a few other agencies.",
+          "I'm not sure we need a full-service partner for everything."
+        ],
+        "valuePositioning": [
+          "Launch your brand and digital presence with precision and long-term intent, avoiding costly reworks later.",
+          "Gain a reliable, integrated digital foundation that scales seamlessly with your business growth.",
+          "Partner with a dedicated team committed to tangible outcomes and strengthening your business sustainably, not just chasing trends."
+        ]
+      },
+      "evolutionHistory": [],
+      "customerContext": "",
+      "objectionHistory": [],
+      "confidenceTrend": [],
+      "updatedAt": "2026-05-09T17:16:25.306Z"
+    },
+    {
+      "id": "24bf67de-f3f5-4e89-8129-0f130786eb53",
+      "companyName": "new age indian Startups established within last 2-3 years exploring ways to bolster online presence, consumer brands who re establishing themselves newly in indian market, new ai tech startups in bangaore or gurgaon or pune or hyderabad, the tech capitals of india.",
+      "stage": "awareness",
+      "pulsePlans": [
+        {
+          "id": "50e151c9-e86a-449c-ae90-1132a0a097a5",
+          "companyName": "new age indian Startups established within last 2-3 years exploring ways to bolster online presence, consumer brands who re establishing themselves newly in indian market, new ai tech startups in bangaore or gurgaon or pune or hyderabad, the tech capitals of india.",
+          "customerContext": "customer is a legacy consumer brand which is starting a new line of products under a new company in a completely new niche. They want to penatrate the market and make use of the evolving indian market.",
+          "predictedObjection": "We're too early stage / still figuring things out.",
+          "plannedResponse": "I completely understand that at your stage, focus is key. Many of our most successful clients partnered with us precisely when they were establishing their foundation, finding it more cost-effective to get it right from the start rather than rework later. My goal today is just to share a couple of insights relevant to rapid growth in your market; would you be open to a quick 10-minute chat?",
+          "callObjective": "most probably execution concerns and whether a new branding startup can solve the problem",
+          "confidenceLevel": 6,
+          "createdAt": "2026-05-09T17:19:43.307Z"
+        }
+      ],
+      "debriefs": [
+        {
+          "id": "fa4ffcef-02f9-4640-97a3-e81a647979fb",
+          "summary": "client was happy with what can be solved provided. Since order is large, they need us to show proof. Since we are a new company we haven't worked with a company of that large budget and expectation. I FOUND IT HARD TO PINPOINT exactly what they want from us. It seemed like the client wants a lot of unfeasible and crazy things, all of which are too long and takes too long.",
+          "objectionFaced": "they want execution for justification of service. ",
+          "yourResponse": "Absolutely but to selve into something as deep and profound as this project we ought to understand and pinpoint the core goals to be achieved.",
+          "outcome": "Neutral",
+          "selfScore": 4,
+          "analysis": null,
+          "createdAt": "2026-05-09T17:24:22.866Z"
+        }
+      ],
+      "evolvingPitch": {
+        "coldCallOpener": "Hi [Prospect Name], [My Name] from NKW Global. We specialize in helping early-stage Indian startups and new consumer brands build solid, scalable digital foundations. The reason for my call is many companies at your stage struggle to build an online presence that truly lasts and can support significant growth, and we ensure it does exactly that.",
+        "discoveryQuestions": [
+          "What's your biggest challenge right now in getting your brand or product to truly stand out and scale online?",
+          "Beyond the immediate needs, what are the key strategic goals you're looking to achieve with your online presence in the next 6-12 months, and how do those connect to your broader business objectives?",
+          "When you envision the ideal outcome for your digital presence, what does that look like both in terms of immediate impact and your long-term vision? Are there any ambitious ideas or 'big swings' you're considering?",
+          "What impact does not having a clear, consistent, and scalable digital strategy currently have on your business?",
+          "Given the potential strategic importance of this project, what's most important for you to see from a partner, especially early on, to build confidence in a larger collaboration?",
+          "How do you typically evaluate potential partners for projects of this scope and investment, and what internal processes are involved?",
+          "What key metrics or tangible outcomes would define success for an initial phase or a pilot project with a partner like us?"
+        ],
+        "coreNarrative": "Many growing businesses struggle with digital initiatives that feel disconnected, rushed, or fail to deliver truly lasting, scalable results. At NKW Global, we're a team of specialists who build robust digital foundations – from strategic branding to high-performance websites and integrated marketing – with methodical precision and a clear focus on long-term impact. We specialize in creating reliable, future-proof systems that not only strengthen your business sustainably but also de-risk your investment, ensuring tangible progress and measurable outcomes.",
+        "commonObjections": [
+          "Your pricing model seems flexible, but how does that translate into a predictable cost for us?",
+          "We're already working with a marketing agency or have an internal team handling this.",
+          "We're a startup; we need results fast, not just 'systems that last' over time.",
+          "You're based in Mysore. Can you really understand and serve the tech ecosystem in [Bangalore/Gurgaon/Pune/Hyderabad]?",
+          "We're just exploring options right now and aren't ready to commit to a new partnership.",
+          "We're too early stage / still figuring things out.",
+          "We need to see execution and tangible results as justification for service before a major commitment.",
+          "You're a newer company; how can you handle a project of this scale and importance and guarantee success?"
+        ],
+        "valuePositioning": [
+          "Establish a robust and scalable digital presence, engineered for consistent high performance, which significantly minimizes future reworks and wasted resources.",
+          "Develop a strategic brand identity and digital infrastructure meticulously designed to evolve and scale seamlessly with your business, ensuring sustainable, long-term growth and market leadership.",
+          "Partner with a team committed to methodical execution, transparent communication, and a de-risked approach, ensuring your digital investments consistently deliver tangible, measurable results and build enduring value."
+        ]
+      },
+      "evolutionHistory": [
+        {
+          "id": "9d700291-8868-4317-99cb-232e4b43caf0",
+          "version": 1,
+          "timestamp": "2026-05-09T17:25:12.317Z",
+          "previousNarrative": {
+            "coldCallOpener": "Hi [Prospect Name], [My Name] from NKW Global. We specialize in helping early-stage Indian startups and new consumer brands get their digital foundations solid. The reason for my call is many companies at your stage struggle to build an online presence that truly lasts, and we help ensure it does.",
+            "discoveryQuestions": [
+              "What's your biggest challenge right now in getting your brand or product to stand out online?",
+              "How are you currently approaching your digital marketing or website development efforts?",
+              "What are the key goals you're looking to achieve with your online presence in the next 6-12 months?",
+              "What impact does not having a clear, consistent digital strategy have on your business right now?",
+              "When you think about building digital systems or a strong brand, what concerns you most about finding the right partner?"
+            ],
+            "coreNarrative": "Many new businesses struggle with digital work that feels rushed or doesn't deliver lasting results. At NKW Global, we're a team of specialists who build digital foundations – from branding to websites and marketing – with precision and long-term intent. We focus on creating reliable systems that strengthen your business sustainably, rather much rather than just chasing the latest trends.",
+            "commonObjections": [
+              "Your pricing model seems flexible, but how does that translate into a predictable cost for us?",
+              "We're already working with a marketing agency or have an internal team handling this.",
+              "We're a startup; we need results fast, not just 'systems that last' over time.",
+              "You're based in Mysore. Can you really understand and serve the tech ecosystem in [Bangalore/Gurgaon/Pune/Hyderabad]?",
+              "We're just exploring options right now and aren't ready to commit to a new partnership.",
+              "We're too early stage / still figuring things out."
+            ],
+            "valuePositioning": [
+              "Establish a robust digital presence that performs consistently, minimizing future reworks and wasted resources.",
+              "Build a strong, clear brand and digital infrastructure designed to scale with your business for sustainable growth.",
+              "Gain a trusted partner committed to clear communication and precise execution, ensuring your digital investments deliver tangible, lasting results."
+            ]
+          },
+          "improvedNarrative": {
+            "coldCallOpener": "Hi [Prospect Name], [My Name] from NKW Global. We specialize in helping early-stage Indian startups and new consumer brands build solid, scalable digital foundations. The reason for my call is many companies at your stage struggle to build an online presence that truly lasts and can support significant growth, and we ensure it does exactly that.",
+            "discoveryQuestions": [
+              "What's your biggest challenge right now in getting your brand or product to truly stand out and scale online?",
+              "Beyond the immediate needs, what are the key strategic goals you're looking to achieve with your online presence in the next 6-12 months, and how do those connect to your broader business objectives?",
+              "When you envision the ideal outcome for your digital presence, what does that look like both in terms of immediate impact and your long-term vision? Are there any ambitious ideas or 'big swings' you're considering?",
+              "What impact does not having a clear, consistent, and scalable digital strategy currently have on your business?",
+              "Given the potential strategic importance of this project, what's most important for you to see from a partner, especially early on, to build confidence in a larger collaboration?",
+              "How do you typically evaluate potential partners for projects of this scope and investment, and what internal processes are involved?",
+              "What key metrics or tangible outcomes would define success for an initial phase or a pilot project with a partner like us?"
+            ],
+            "coreNarrative": "Many growing businesses struggle with digital initiatives that feel disconnected, rushed, or fail to deliver truly lasting, scalable results. At NKW Global, we're a team of specialists who build robust digital foundations – from strategic branding to high-performance websites and integrated marketing – with methodical precision and a clear focus on long-term impact. We specialize in creating reliable, future-proof systems that not only strengthen your business sustainably but also de-risk your investment, ensuring tangible progress and measurable outcomes.",
+            "commonObjections": [
+              "Your pricing model seems flexible, but how does that translate into a predictable cost for us?",
+              "We're already working with a marketing agency or have an internal team handling this.",
+              "We're a startup; we need results fast, not just 'systems that last' over time.",
+              "You're based in Mysore. Can you really understand and serve the tech ecosystem in [Bangalore/Gurgaon/Pune/Hyderabad]?",
+              "We're just exploring options right now and aren't ready to commit to a new partnership.",
+              "We're too early stage / still figuring things out.",
+              "We need to see execution and tangible results as justification for service before a major commitment.",
+              "You're a newer company; how can you handle a project of this scale and importance and guarantee success?"
+            ],
+            "valuePositioning": [
+              "Establish a robust and scalable digital presence, engineered for consistent high performance, which significantly minimizes future reworks and wasted resources.",
+              "Develop a strategic brand identity and digital infrastructure meticulously designed to evolve and scale seamlessly with your business, ensuring sustainable, long-term growth and market leadership.",
+              "Partner with a team committed to methodical execution, transparent communication, and a de-risked approach, ensuring your digital investments consistently deliver tangible, measurable results and build enduring value."
+            ]
+          },
+          "triggerEvent": "Debrief Evolution",
+          "appliedChanges": [
+            "The original response was logical but failed to offer a proactive solution to the client's explicit need for proof and tangible execution. The improved response validates the client's concern, offers a de-risked path forward (discovery/pilot project) that demonstrates capability, and provides a clear next step that builds trust without committing to free work, directly addressing the 'execution for justification' objection."
+          ],
+          "aiSummary": {
+            "whyChanged": "The debrief highlighted a critical gap: the previous pitch struggled to address client demands for proof and tangible execution, especially for large projects from a new company, and the rep found it difficult to pinpoint client needs amidst perceived 'unfeasible' requests.",
+            "whatImproved": "The pitch was improved by introducing a strategic response to the 'execution for justification' objection, offering de-risked entry points like pilot projects. Discovery questions are now more incisive, designed to qualify expectations, uncover ambitious ideas early, and understand client evaluation processes for major investments. The core narrative and value positioning were strengthened to emphasize methodical execution, scalability, de-risking investments, and delivering measurable, tangible outcomes, which builds confidence regardless of company age.",
+            "futureImpact": "This evolved pitch will empower the rep to proactively address trust and capability concerns, better qualify client expectations, and guide conversations toward feasible, high-impact solutions. By offering structured initial engagements, it creates a clear path to demonstrating value and securing larger, more complex projects, ultimately leading to improved conversion rates and stronger client relationships."
+          }
+        }
+      ],
+      "customerContext": "customer is a legacy consumer brand which is starting a new line of products under a new company in a completely new niche. They want to penatrate the market and make use of the evolving indian market.",
+      "objectionHistory": [
+        "they want execution for justification of service. "
+      ],
+      "confidenceTrend": [
+        6,
+        4
+      ],
+      "updatedAt": "2026-05-09T17:25:12.317Z"
+    },
+    {
+      "id": "1999a4ac-04d5-43d5-853c-1bd475082c81",
+      "companyName": "Ministry of Finance Procurement Boards, Commissioners General of Federal Revenue Authorities, Chief Information Officers (CIOs) of National Tax Agencies, and Digital Transformation Steering Committees in emerging and developing economies.",
+      "stage": "awareness",
+      "pulsePlans": [],
+      "debriefs": [],
+      "evolvingPitch": {
+        "coldCallOpener": "Commissioner [Name], I'm calling about how some emerging economies are accelerating national revenue collection and improving fiscal transparency. Is this a priority for your agency right now?",
+        "discoveryQuestions": [
+          "What are your agency's top priorities regarding national revenue collection and ensuring fiscal transparency over the next 12-18 months?",
+          "What challenges are you currently facing with identifying and closing tax leakage or undeclared revenue?",
+          "How are you currently assessing the efficiency of tax administration processes and the citizen experience with tax filing?",
+          "What initiatives are underway to digitize core revenue workflows and reduce reliance on manual, paper-based systems?",
+          "When you think about the future-proofing your national tax system, what are the primary concerns or risks on your mind?"
+        ],
+        "coreNarrative": "Many national tax authorities struggle with fragmented systems, leading to significant revenue leakage and complex citizen interactions. We help federal revenue agencies unify all their tax workflows into a single digital platform. This not only identifies and closes substantial tax leakages but also drastically simplifies tax filing for citizens and reduces your operational costs.",
+        "commonObjections": [
+          "Our existing system is stable, even if it has limitations.",
+          "The scale and cost of a project like this are a major concern for us.",
+          "We've had issues with large-scale IT transformations in the past.",
+          "We worry about data security and sovereign control with a new system.",
+          "Securing political buy-in for such a significant change could be difficult."
+        ],
+        "valuePositioning": [
+          "Identify and close 18-24% of existing tax leakages within the first fiscal year, directly boosting national revenue.",
+          "Elevate your nation's Fiscal Transparency Index ranking through a transparent, immutable auditing framework.",
+          "Reduce administrative overhead by $140M annually and cut citizen tax-filing friction by 65% through full digitization."
+        ]
+      },
+      "evolutionHistory": [],
+      "customerContext": "",
+      "objectionHistory": [],
+      "confidenceTrend": [],
+      "updatedAt": "2026-05-16T18:04:05.874Z"
+    },
+    {
+      "id": "325b5e11-896f-438a-ac5f-5d1572e39a80",
+      "companyName": "Ministry of Finance Procurement Boards, Commissioners General of Federal Revenue Authorities, Chief Information Officers (CIOs) of National Tax Agencies, and Digital Transformation Steering Committees in emerging and developing economies.",
+      "stage": "awareness",
+      "pulsePlans": [
+        {
+          "id": "704ca892-bbb6-468f-bd32-b9939eb741d0",
+          "companyName": "Ministry of Finance Procurement Boards, Commissioners General of Federal Revenue Authorities, Chief Information Officers (CIOs) of National Tax Agencies, and Digital Transformation Steering Committees in emerging and developing economies.",
+          "customerContext": "The Ministry is under immense structural pressure from the International Monetary Fund (IMF) to reduce its national fiscal deficit by 3.5% over the next 24 months as a condition for loan restructuring. The current legacy tax infrastructure is fractured across 14 siloed, on-premises databases, resulting in massive compliance loopholes, a rampant shadow economy, and an estimated $850M in annual VAT leakages alone. Furthermore, the upcoming federal election cycle means the current administration needs a highly visible, politically defensible win regarding public sector modernization and anti-corruption measures within the next fiscal year.",
+          "predictedObjection": "Our budget is extremely constrained / We don't have the necessary funding.",
+          "plannedResponse": "I completely understand budget considerations are paramount. Our approach focuses on demonstrating clear, quantifiable returns on investment, often through enhanced revenue collection or significant cost efficiencies, which can help justify the initial outlay. Could we explore what an acceptable ROI timeline would look like for you?",
+          "callObjective": "Schedule technical deep dive",
+          "confidenceLevel": 6,
+          "createdAt": "2026-05-16T18:06:58.636Z"
+        }
+      ],
+      "debriefs": [
+        {
+          "id": "8ad7e448-0015-4bc3-ace6-2d23b9f84b5b",
+          "summary": "Initiated the discovery call with John, the Technical Lead of the Digital Transformation Steering Committee. Walked through our core ITAS capabilities and focused heavily on our automated ledger features. John was highly engaged during the product architecture breakdown, specifically asking about our API throughput speeds and database sync intervals. However, the energy shifted completely when we opened the floor for procurement timelines. The call ended abruptly due to a hard stop on his end, but he agreed to review our preliminary technical whitepaper.",
+          "objectionFaced": "The prospect raised a sharp objection regarding vendor lock-in, citing a disastrous legacy deployment with our competitor where they couldn't migrate data out of a proprietary schema.",
+          "yourResponse": "I assured him that our system uses standard PostgreSQL open schemas and supports native data portability via automated ETL pipelines, completely avoiding vendor lock-in.",
+          "outcome": "Neutral",
+          "selfScore": 6,
+          "analysis": null,
+          "createdAt": "2026-05-16T18:10:22.126Z"
+        }
+      ],
+      "evolvingPitch": {
+        "coldCallOpener": "Mr./Madam Commissioner, [My Name] with ABC Solutions. We specialize in helping national revenue authorities like yours rapidly digitize tax administration and significantly boost collections. I'm calling because we've seen a consistent challenge with uncollected revenue. Would you be open to a brief chat about how other nations are recovering 18-24% of theirs?",
+        "discoveryQuestions": [
+          "How are you currently identifying and addressing potential revenue leakage across different tax types, like VAT or CIT?",
+          "What challenges does your team face with data visibility or auditability when trying to get a unified view of taxpayer compliance?",
+          "Can you describe the biggest bottlenecks or inefficiencies in your current tax filing and settlement processes, especially for citizens and businesses?",
+          "What are the strategic priorities for your digital transformation initiatives within the national tax agency over the next 3-5 years?",
+          "How critical is improving your nation's Fiscal Transparency Index ranking to your current administration's goals?",
+          "From a technical architecture perspective, how critical is data portability and the use of open standards in your digital transformation roadmap?",
+          "What are your primary concerns regarding data integration, API throughput, or real-time data synchronization across disparate legacy tax systems?",
+          "How does your team currently manage data migration between systems, and what challenges have you encountered with proprietary schemas?"
+        ],
+        "coreNarrative": "We offer SovereignTax OS, a comprehensive digital platform built on open architecture that unifies all national tax and customs revenue streams – like VAT, corporate income, and excise duties – into one secure ledger. This allows governments to rapidly close major revenue gaps, simplify the tax experience for citizens, and establish clear financial transparency across the board.",
+        "commonObjections": [
+          "We already have multiple systems in place; integrating something new at this scale seems incredibly complex and disruptive.",
+          "The budget for a project like this is astronomical and requires years of planning and political consensus.",
+          "Our budget is extremely constrained / We don't have the necessary funding.",
+          "How can you realistically promise a 18-24% increase in revenue? That's a huge claim.",
+          "We've had large IT transformation projects fail or go significantly over budget in the past. What's different here?",
+          "We've experienced vendor lock-in before, and data migration out of proprietary systems is a nightmare. This is a critical concern, and we've engineered SovereignTax OS specifically to prevent that. We leverage standard, open PostgreSQL schemas and provide native data portability through automated ETL pipelines, ensuring your data is always accessible and migratable. Your ownership and control of your data are paramount."
+        ],
+        "valuePositioning": [
+          "Identify and recover 18-24% of uncollected national revenue within the first fiscal year.",
+          "Elevate your nation's Fiscal Transparency Index ranking through an immutable, auditable revenue framework.",
+          "Digitize all tax administration, significantly reducing citizen friction by 65% and cutting administrative overhead by $140M annually."
+        ]
+      },
+      "evolutionHistory": [
+        {
+          "id": "c345a98d-c689-40bf-a89f-3d30afccc3a1",
+          "version": 1,
+          "timestamp": "2026-05-16T18:10:52.558Z",
+          "previousNarrative": {
+            "coldCallOpener": "Mr./Madam Commissioner, [My Name] with ABC Solutions. We specialize in helping national revenue authorities like yours rapidly digitize tax administration and significantly boost collections. I'm calling because we've seen a consistent challenge with uncollected revenue. Would you be open to a brief chat about how other nations are recovering 18-24% of theirs?",
+            "discoveryQuestions": [
+              "How are you currently identifying and addressing potential revenue leakage across different tax types, like VAT or CIT?",
+              "What challenges does your team face with data visibility or auditability when trying to get a unified view of taxpayer compliance?",
+              "Can you describe the biggest bottlenecks or inefficiencies in your current tax filing and settlement processes, especially for citizens and businesses?",
+              "What are the strategic priorities for your digital transformation initiatives within the national tax agency over the next 3-5 years?",
+              "How critical is improving your nation's Fiscal Transparency Index ranking to your current administration's goals?"
+            ],
+            "coreNarrative": "We offer SovereignTax OS, a comprehensive digital platform that unifies all national tax and customs revenue streams – like VAT, corporate income, and excise duties – into one secure ledger. This allows governments to rapidly close major revenue gaps, simplify the tax experience for citizens, and establish clear financial transparency across the board.",
+            "commonObjections": [
+              "We already have multiple systems in place; integrating something new at this scale seems incredibly complex and disruptive.",
+              "The budget for a project like this is astronomical and requires years of planning and political consensus.",
+              "Our budget is extremely constrained / We don't have the necessary funding.",
+              "How can you realistically promise a 18-24% increase in revenue? That's a huge claim.",
+              "We've had large IT transformation projects fail or go significantly over budget in the past. What's different here?"
+            ],
+            "valuePositioning": [
+              "Identify and recover 18-24% of uncollected national revenue within the first fiscal year.",
+              "Elevate your nation's Fiscal Transparency Index ranking through an immutable, auditable revenue framework.",
+              "Digitize all tax administration, significantly reducing citizen friction by 65% and cutting administrative overhead by $140M annually."
+            ]
+          },
+          "improvedNarrative": {
+            "coldCallOpener": "Mr./Madam Commissioner, [My Name] with ABC Solutions. We specialize in helping national revenue authorities like yours rapidly digitize tax administration and significantly boost collections. I'm calling because we've seen a consistent challenge with uncollected revenue. Would you be open to a brief chat about how other nations are recovering 18-24% of theirs?",
+            "discoveryQuestions": [
+              "How are you currently identifying and addressing potential revenue leakage across different tax types, like VAT or CIT?",
+              "What challenges does your team face with data visibility or auditability when trying to get a unified view of taxpayer compliance?",
+              "Can you describe the biggest bottlenecks or inefficiencies in your current tax filing and settlement processes, especially for citizens and businesses?",
+              "What are the strategic priorities for your digital transformation initiatives within the national tax agency over the next 3-5 years?",
+              "How critical is improving your nation's Fiscal Transparency Index ranking to your current administration's goals?",
+              "From a technical architecture perspective, how critical is data portability and the use of open standards in your digital transformation roadmap?",
+              "What are your primary concerns regarding data integration, API throughput, or real-time data synchronization across disparate legacy tax systems?",
+              "How does your team currently manage data migration between systems, and what challenges have you encountered with proprietary schemas?"
+            ],
+            "coreNarrative": "We offer SovereignTax OS, a comprehensive digital platform built on open architecture that unifies all national tax and customs revenue streams – like VAT, corporate income, and excise duties – into one secure ledger. This allows governments to rapidly close major revenue gaps, simplify the tax experience for citizens, and establish clear financial transparency across the board.",
+            "commonObjections": [
+              "We already have multiple systems in place; integrating something new at this scale seems incredibly complex and disruptive.",
+              "The budget for a project like this is astronomical and requires years of planning and political consensus.",
+              "Our budget is extremely constrained / We don't have the necessary funding.",
+              "How can you realistically promise a 18-24% increase in revenue? That's a huge claim.",
+              "We've had large IT transformation projects fail or go significantly over budget in the past. What's different here?",
+              "We've experienced vendor lock-in before, and data migration out of proprietary systems is a nightmare. This is a critical concern, and we've engineered SovereignTax OS specifically to prevent that. We leverage standard, open PostgreSQL schemas and provide native data portability through automated ETL pipelines, ensuring your data is always accessible and migratable. Your ownership and control of your data are paramount."
+            ],
+            "valuePositioning": [
+              "Identify and recover 18-24% of uncollected national revenue within the first fiscal year.",
+              "Elevate your nation's Fiscal Transparency Index ranking through an immutable, auditable revenue framework.",
+              "Digitize all tax administration, significantly reducing citizen friction by 65% and cutting administrative overhead by $140M annually."
+            ]
+          },
+          "triggerEvent": "Debrief Evolution",
+          "appliedChanges": [
+            "The debrief revealed a sharp, critical technical objection regarding vendor lock-in. Proactively addressing this concern in the pitch, especially when engaging with technical stakeholders, builds immediate trust, demonstrates technical understanding, and prevents potential deal blockers. Reinforcing open architecture in the narrative supports this proactively."
+          ],
+          "aiSummary": {
+            "whyChanged": "The pitch needed to change to better address specific technical objections and resonate with technical stakeholders, as highlighted by the interaction with the Technical Lead and the vendor lock-in concern.",
+            "whatImproved": "The pitch now proactively addresses vendor lock-in with a robust technical explanation within the common objections. New discovery questions have been added to uncover technical pain points (API throughput, data portability, open standards) relevant to IT leads. The core narrative now subtly reinforces open architecture, building credibility with technical audiences.",
+            "futureImpact": "These improvements will enhance credibility with technical decision-makers, preempt critical technical objections early in the sales cycle, and lead to more targeted and productive discovery conversations by aligning directly with their technical concerns and priorities."
+          }
+        }
+      ],
+      "customerContext": "The Ministry is under immense structural pressure from the International Monetary Fund (IMF) to reduce its national fiscal deficit by 3.5% over the next 24 months as a condition for loan restructuring. The current legacy tax infrastructure is fractured across 14 siloed, on-premises databases, resulting in massive compliance loopholes, a rampant shadow economy, and an estimated $850M in annual VAT leakages alone. Furthermore, the upcoming federal election cycle means the current administration needs a highly visible, politically defensible win regarding public sector modernization and anti-corruption measures within the next fiscal year.",
+      "objectionHistory": [
+        "The prospect raised a sharp objection regarding vendor lock-in, citing a disastrous legacy deployment with our competitor where they couldn't migrate data out of a proprietary schema."
+      ],
+      "confidenceTrend": [
+        6,
+        6
+      ],
+      "updatedAt": "2026-05-16T18:10:52.558Z"
+    },
+    {
+      "id": "5691893d-af81-43dc-8022-a3413f5a3c6d",
+      "companyName": "Innovative Print Works",
+      "stage": "interest",
+      "pulsePlans": [],
+      "debriefs": [],
+      "evolvingPitch": {
+        "coldCallOpener": "Hi, this is [My Name] from NKW Global. I noticed your company Innovative Print Works and we specialize in helping businesses like yours quickly establish a robust, high-performance digital presence. Do you have a quick minute?",
+        "discoveryQuestions": [
+          "What is your biggest pain point in scaling your product or service right now?",
+          "How are you currently handling your team's digital outreach or brand scaling?",
+          "What are your top 1-2 strategic goals over the next 6-12 months?",
+          "What resources or expertise do you feel you lack to reach those objectives?",
+          "How important is establishing a clean, scalable brand foundation early on?"
+        ],
+        "coreNarrative": "We are a specialized team of engineers, designers, and strategists at NKW Global who partner with companies like Innovative Print Works to build precise, durable digital infrastructure and brand assets. We deliver high-performing systems that strengthen your business sustainably.",
+        "commonObjections": [
+          "We already have an internal team handling this.",
+          "We are too early-stage and need to keep budget extremely constrained.",
+          "We are not ready to commit to a long-term partnership right now."
+        ],
+        "valuePositioning": [
+          "Launch Innovative Print Works with precision and clean, durable digital assets, avoiding costly reworks later.",
+          "Partner with a dedicated team committed to tangible outcomes, de-risking your investment.",
+          "Establish a scalable infrastructure designed to support rapid growth sustainably."
+        ]
+      },
+      "evolutionHistory": [],
+      "customerContext": "",
+      "objectionHistory": [],
+      "confidenceTrend": [],
+      "updatedAt": "2026-05-31T18:27:28.719Z"
+    },
+    {
+      "id": "test-client-123",
+      "companyName": "Test Company",
+      "stage": "awareness",
+      "pulsePlans": [],
+      "debriefs": [
+        {
+          "id": "27bd1a04-aa18-40f5-be09-00aae2f391c5",
+          "summary": "Discussed pricing",
+          "objectionFaced": "pricing",
+          "yourResponse": "Compared cost against hiring SDR",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T16:10:12.269Z"
+        },
+        {
+          "id": "eed96a1c-541f-4134-a248-2602dab0bd96",
+          "summary": "Discussed pricing again",
+          "objectionFaced": "pricing",
+          "yourResponse": "Compared cost against hiring SDR",
+          "outcome": "positive",
+          "selfScore": 9,
+          "analysis": null,
+          "createdAt": "2026-06-01T16:10:12.284Z"
+        },
+        {
+          "id": "4247d736-9fe7-4100-831b-5789f9e38e59",
+          "summary": "Pricing objection failed",
+          "objectionFaced": "pricing",
+          "yourResponse": "Compared cost against hiring SDR",
+          "outcome": "negative",
+          "selfScore": 3,
+          "analysis": null,
+          "createdAt": "2026-06-01T16:10:12.298Z"
+        }
+      ],
+      "evolvingPitch": {
+        "coldCallOpener": "",
+        "discoveryQuestions": [],
+        "coreNarrative": "",
+        "commonObjections": [],
+        "valuePositioning": []
+      },
+      "evolutionHistory": [],
+      "customerContext": "Test context",
+      "objectionHistory": [
+        "pricing",
+        "pricing",
+        "pricing"
+      ],
+      "confidenceTrend": [
+        8,
+        9,
+        3
+      ],
+      "updatedAt": "2026-06-01T16:10:12.298Z"
+    },
+    {
+      "id": "test-persistence-client",
+      "companyName": "Persistence Test Company",
+      "stage": "awareness",
+      "pulsePlans": [],
+      "debriefs": [
+        {
+          "id": "67178054-7f5f-4997-90b0-cd94cefd6286",
+          "summary": "Pricing objection discussed for the 1th time",
+          "objectionFaced": "pricing",
+          "yourResponse": "ROI comparison against SDR hiring",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T17:22:58.966Z"
+        },
+        {
+          "id": "c2c94cf7-7be7-4be6-947c-b88931f0f5f5",
+          "summary": "Pricing objection discussed for the 2th time",
+          "objectionFaced": "pricing",
+          "yourResponse": "ROI comparison against SDR hiring",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T17:22:58.976Z"
+        },
+        {
+          "id": "2cdca6d6-6319-43c4-970d-072536dd8abf",
+          "summary": "Pricing objection discussed for the 3th time",
+          "objectionFaced": "pricing",
+          "yourResponse": "ROI comparison against SDR hiring",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T17:22:58.987Z"
+        },
+        {
+          "id": "35ffea1f-aef4-47b9-a2b4-1eeb8b72ca8c",
+          "summary": "Pricing objection discussed for the 4th time",
+          "objectionFaced": "pricing",
+          "yourResponse": "ROI comparison against SDR hiring",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T17:22:58.998Z"
+        },
+        {
+          "id": "04b72f04-a27c-4ea7-ae5e-5f9f66527b22",
+          "summary": "Pricing objection discussed for the 5th time",
+          "objectionFaced": "pricing",
+          "yourResponse": "ROI comparison against SDR hiring",
+          "outcome": "positive",
+          "selfScore": 8,
+          "analysis": null,
+          "createdAt": "2026-06-01T17:22:59.009Z"
+        }
+      ],
+      "evolvingPitch": {
+        "coldCallOpener": "",
+        "discoveryQuestions": [],
+        "coreNarrative": "",
+        "commonObjections": [],
+        "valuePositioning": []
+      },
+      "evolutionHistory": [],
+      "customerContext": "Context for persistence test",
+      "objectionHistory": [
+        "pricing",
+        "pricing",
+        "pricing",
+        "pricing",
+        "pricing"
+      ],
+      "confidenceTrend": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "updatedAt": "2026-06-01T17:22:59.009Z"
+    },
+    {
+      "id": "test-prompt-client",
+      "companyName": "Prompt Test Company",
+      "stage": "action",
+      "pulsePlans": [],
+      "debriefs": [],
+      "evolvingPitch": {
+        "coldCallOpener": "",
+        "discoveryQuestions": [],
+        "coreNarrative": "",
+        "commonObjections": [],
+        "valuePositioning": []
+      },
+      "evolutionHistory": [],
+      "customerContext": "Context for prompt verification test",
+      "objectionHistory": [
+        "pricing"
+      ],
+      "confidenceTrend": [],
+      "updatedAt": "2026-06-01T17:25:06.345Z"
+    }
+  ],
+  "salesPatterns": [
+    {
+      "id": "target-pattern-id",
+      "objectionType": "pricing",
+      "pattern": "ROI comparison against SDR hiring",
+      "effectivenessScore": 89,
+      "wins": 89,
+      "losses": 11,
+      "uses": 12,
+      "examples": [
+        "ROI comparison against SDR hiring example"
+      ],
+      "lastUpdated": "2026-06-01T17:25:06.346Z"
+    }
+  ]
+}
