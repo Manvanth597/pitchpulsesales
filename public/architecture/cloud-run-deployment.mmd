@@ -1,0 +1,76 @@
+flowchart TD
+    subgraph Users
+        SR[Sales Reps]
+        M[Managers]
+        E[Executives]
+    end
+
+    subgraph WorkspaceLayer [Workspace Layer]
+        SW[Sales Workspace<br>Outputs: Deal Strategy, Next Actions, Risk]
+        MW[Manager Workspace<br>Outputs: Rep Coaching, Learning Intel, Forecasts]
+        EW[Executive Workspace<br>Outputs: Revenue Intel, Growth, Visibility]
+    end
+
+    Users --> WorkspaceLayer
+
+    subgraph CloudRun [Cloud Run Runtime]
+        WebApp[PitchPulseSales Web App]
+        API[API Layer]
+        WO[Workspace Orchestrator]
+        
+        subgraph MultiAgentRuntime [Multi-Agent Runtime]
+            PGA[Pitch Generation]
+            PPA[Pulse Planning]
+            LA[Learning]
+            PEA[Pitch Evolution]
+            SA[Strategy]
+            FA[Forecast]
+            RIA[Revenue Intelligence]
+            CA[Coaching]
+            
+            AR[Agent Registry]
+            BE[Business Events]
+            SM[Shared Memory]
+            
+            %% Communication
+            LA -->|objection_pattern_detected| SA
+            SA -->|confidence_adjustment| FA
+            FA -->|pipeline_risk_detected| RIA
+            LA -->|skill_gap_detected| CA
+        end
+    end
+
+    WorkspaceLayer --> WebApp
+    WebApp --> API
+    API --> WO
+    WO --> MultiAgentRuntime
+    RIA -->|Executive Visibility| EW
+
+    subgraph VertexAI [Vertex AI]
+        Reasoning
+        Pattern[Pattern Detection]
+        Forecasting
+        Coaching_AI[Coaching Insights]
+        RevAnalysis[Revenue Analysis]
+        PE[Pitch Evolution]
+    end
+
+    MultiAgentRuntime --> VertexAI
+
+    subgraph MemoryLayer [Memory Layer]
+        db[(db.json Current / Firestore Future)]
+        Data[Profiles, Pitches, Pulse Plans, Debriefs, Objections, Confidence, Forecasts, Insights]
+        db --- Data
+    end
+
+    MultiAgentRuntime --> MemoryLayer
+
+    subgraph Observability [Observability]
+        CL[Cloud Logging]
+        CM[Cloud Monitoring]
+        AT[Audit Trail]
+        AAL[Agent Activity Logs]
+        SysM[System Metrics]
+    end
+
+    CloudRun --> Observability
