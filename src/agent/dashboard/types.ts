@@ -39,6 +39,7 @@ export interface MyTask {
   priority: PriorityLevel;
   task: string;
   relatedDeal?: string;
+  clientId?: string;
   dueDate: string;
 }
 
@@ -65,6 +66,14 @@ export interface ExecutiveSummary {
   expectedRevenue: number;
   avgConfidence: number;
   healthTrend: HealthTrend;
+  executiveSummaryText?: string;
+  usedCachedData?: boolean;
+}
+
+export interface RepPerformance {
+  userId: string;
+  name: string;
+  score: number;
 }
 
 /**
@@ -77,26 +86,33 @@ export interface TeamSummary {
   atRiskDeals: number;
   avgPipelineHealth: number;
   avgConfidence: number;
-  topPerformer: string;
-  needsAttention: string[];
+  topPerformer: RepPerformance;
+  needsAttention: RepPerformance;
+  teamSummaryText?: string;
+  usedCachedData?: boolean;
 }
 
 /**
  * Represents a specific pattern insight identified by the learning engine.
  */
 export interface PatternInsight {
+  id: string;
+  objectionType: string;
   pattern: string;
-  impactScore: number;
-  description: string;
+  effectivenessScore: number;
+  wins: number;
+  losses: number;
+  uses: number;
+  lastUpdated: string;
 }
 
 /**
  * Represents an objection insight and how to handle it.
  */
 export interface ObjectionInsight {
-  objection: string;
-  frequency: number;
-  suggestedResponse: string;
+  objectionType: string;
+  count: number;
+  percentage: number;
 }
 
 /**
@@ -107,6 +123,8 @@ export interface LearningIntelligence {
   weakestPatterns: PatternInsight[];
   topObjections: ObjectionInsight[];
   fastestGrowingPatterns: PatternInsight[];
+  learningSummaryText?: string;
+  usedCachedData?: boolean;
 }
 
 /**
@@ -117,6 +135,45 @@ export interface ManagerAction {
   action: string;
   reason: string;
   relatedDeal?: string;
+}
+
+export interface ActionCenterData {
+  actions: ManagerAction[];
+  actionSummaryText?: string;
+  usedCachedData?: boolean;
+}
+
+import { CoachingReport } from "../coaching/types";
+
+export interface TopPerformer {
+  repId: string;
+  name: string;
+  performanceScore: number;
+  strengths: string[];
+}
+
+export interface CoachingCandidate {
+  repId: string;
+  name: string;
+  performanceScore: number;
+  weaknesses: string[];
+  recommendedSkills: string[];
+}
+
+export interface AggregatedSkillGap {
+  skill: string;
+  frequency: number;
+  severity: "low" | "medium" | "high";
+  affectedReps: string[];
+}
+
+export interface RepCoachingSummary {
+  topPerformers: TopPerformer[];
+  coachingCandidates: CoachingCandidate[];
+  criticalSkillGaps: AggregatedSkillGap[];
+  coachingReports: CoachingReport[];
+  coachingSummaryText?: string;
+  usedCachedData?: boolean;
 }
 
 /**
@@ -131,5 +188,6 @@ export interface DashboardData {
   myRisks: MyRisk[];
   teamSummary?: TeamSummary;
   learningIntelligence?: LearningIntelligence;
-  actionCenter?: ManagerAction[];
+  actionCenter?: ActionCenterData;
+  coachingSummary?: RepCoachingSummary;
 }

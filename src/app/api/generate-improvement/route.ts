@@ -83,7 +83,11 @@ Return ONLY valid JSON with this exact structure:
 }
 `
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+    const ai = new GoogleGenAI({
+      vertexai: true,
+      project: 'agent-project-496514',
+      location: 'us-central1'
+    })
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
@@ -148,9 +152,16 @@ Return ONLY valid JSON with this exact structure:
     const text = response.text
     if (!text) throw new Error("No text generated")
 
-    return NextResponse.json(JSON.parse(text))
+    // Robustly extract JSON block in case of preamble/postamble or markdown tags
+    let jsonString = text;
+    const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+    if (jsonMatch) {
+      jsonString = jsonMatch[1];
+    }
+    
+    return NextResponse.json(JSON.parse(jsonString.trim()))
   } catch (error) {
     console.error("Generate Improvement Error:", error)
-    return NextResponse.json({ error: "Failed to generate improvement" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to generate improvement", details: error instanceof Error ? error.message : String(error), stack: error instanceof Error ? error.stack : undefined }, { status: 500 })
   }
 }

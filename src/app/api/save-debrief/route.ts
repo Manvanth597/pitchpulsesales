@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getClient, saveClient } from "@/lib/db"
+import { getClient, saveClient, invalidateDebriefCaches, invalidateSalesStageCaches } from "@/lib/db"
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,11 +29,15 @@ export async function POST(req: NextRequest) {
     client.confidenceTrend.push(debrief.selfScore)
     
     // Progress stage logic if closed won etc.
+    let stageChanged = false;
     if (debrief.outcome === "Closed Won") {
       client.stage = "action"
+      stageChanged = true;
     }
 
     await saveClient(client)
+    invalidateDebriefCaches()
+    if (stageChanged) invalidateSalesStageCaches()
 
     return NextResponse.json({ success: true })
   } catch (error) {

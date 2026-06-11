@@ -1,0 +1,54 @@
+{
+  "clients": [
+    {
+      "id": "13ed3311-7425-4ff4-8d02-14f86297b66d",
+      "companyName": "new age indian Startups established within last 2-3 years exploring ways to bolster online presence, consumer brands who re establishing themselves newly in indian market, new ai tech startups in bangaore or gurgaon or pune or hyderabad, the tech capitals of india.",
+      "stage": "awareness",
+      "pulsePlans": [],
+      "debriefs": [],
+      "evolvingPitch": {
+        "coldCallOpener": "Hi {Prospect Name}, this is {My Name} from NKW Global. I noticed your company is a {new age startup/consumer brand establishing in India/AI tech startup} and we specialize in helping businesses like yours quickly establish a robust digital presence. Do you have a quick minute?",
+        "discoveryQuestions": [
+          "What's the biggest hurdle you're facing right now in getting your brand or product effectively in front of your target audience?",
+          "How are you currently handling key areas like your website development, branding, or social media efforts?",
+          "Looking ahead, what are your top 1-2 strategic goals for your digital presence over the next 6-12 months?",
+          "What resources or expertise do you feel you're currently lacking to hit those critical digital objectives?",
+          "How important is it for your team to have a consistent, high-performing digital infrastructure and brand image right from the start?"
+        ],
+        "coreNarrative": "Many new age startups and growing brands struggle with getting their digital presence built right from day one – whether it's inconsistent branding, unreliable development, or just figuring out where to start. At NKW Global, we're a team of engineers, designers, and marketers who partner with you to build those critical digital systems and brand assets, ensuring they're precise, performant, and built to last, not just for optics.",
+        "commonObjections": [
+          "We already have a team handling this internally.",
+          "Your pricing model seems less predictable than what we're used to.",
+          "We're not ready for a major digital overhaul or partnership right now.",
+          "We're exploring options with a few other agencies.",
+          "I'm not sure we need a full-service partner for everything."
+        ],
+        "valuePositioning": [
+          "Launch your brand and digital presence with precision and long-term intent, avoiding costly reworks later.",
+          "Gain a reliable, integrated digital foundation that scales seamlessly with your business growth.",
+          "Partner with a dedicated team committed to tangible outcomes and strengthening your business sustainably, not just chasing trends."
+        ]
+      },
+      "evolutionHistory": [],
+      "customerContext": "",
+      "objectionHistory": [],
+      "confidenceTrend": [],
+      "updatedAt": "2026-05-09T17:16:25.306Z"
+    }
+  ],
+  "salesPatterns": [
+    {
+      "id": "target-pattern-id",
+      "objectionType": "pricing",
+      "pattern": "ROI comparison against SDR hiring",
+      "effectivenessScore": 89,
+      "wins": 89,
+      "losses": 11,
+      "uses": 12,
+      "examples": [
+        "ROI comparison against SDR hiring example"
+      ],
+      "lastUpdated": "2026-06-01T17:25:06.346Z"
+    }
+  ]
+}

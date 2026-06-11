@@ -11,7 +11,9 @@ export async function POST(req: NextRequest) {
     }
 
     const ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY,
+      vertexai: true,
+      project: 'agent-project-496514',
+      location: 'us-central1'
     })
 
     const prompt = `

@@ -46,6 +46,7 @@ export default function SetupPage() {
     setIsSubmitting(true)
     const fullData = { ...data, additionalContext }
     sessionStorage.setItem("pitchContext", JSON.stringify(fullData))
+    sessionStorage.removeItem("clientId")
     router.push("/pitch")
   }
 
@@ -57,7 +58,7 @@ export default function SetupPage() {
         <Card className="p-6 sm:p-8 border-border/60 shadow-sm">
           <div className="mb-8">
             <h1 className="text-xl font-semibold tracking-tight text-foreground">
-              1. Set up Company Context
+              Set up Company Context
             </h1>
             <p className="text-sm text-muted-foreground mt-2">
               Provide details about your offering to generate a tailored sales narrative.
@@ -131,7 +132,7 @@ export default function SetupPage() {
 
             <div className="pt-4 flex justify-end">
               <Button type="submit" size="lg" disabled={isSubmitting}>
-                {isSubmitting ? "Generating..." : "Generate Pitch"}
+                {isSubmitting ? "Saving..." : "Generate Pitch"}
               </Button>
             </div>
           </form>

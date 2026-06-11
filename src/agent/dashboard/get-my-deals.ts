@@ -1,25 +1,35 @@
 import { getAllClients } from "@/lib/db";
 import { calculateDealHealthFromClient } from "@/agent/analytics/calculate-deal-health";
 import { analyzeOpportunityRiskFromClient } from "@/agent/risk/analyze-opportunity-risk";
-import { MyDeal } from "@/types/dashboard";
+import { MyDeal } from "./types";
 
+/**
+ * Retrieves and prioritizes active deals for a given user.
+ * Connects directly to the Deal Health and Opportunity Risk engines.
+ */
 export async function getMyDeals(userId: string): Promise<MyDeal[]> {
     const clients = await getAllClients();
+    
+    // 1 & 2. Retrieve deals and ignore closed won/lost
     const activeDeals = clients.filter(c => c.stage !== "closed_lost" && c.stage !== "closed_won");
     
     const mappedDeals: MyDeal[] = activeDeals.map(client => {
+        // 3. Calculate health score using engine
         const health = calculateDealHealthFromClient(client);
+        
+        // 4. Calculate risk level using engine
         const risk = analyzeOpportunityRiskFromClient(client);
         
         const latestConfidence = client.confidenceTrend.length > 0 
             ? client.confidenceTrend[client.confidenceTrend.length - 1] 
             : 5;
             
+        // 5. Return structured format
         return {
             id: client.id,
             company: client.companyName,
             stage: client.stage,
-            value: 50000, // Mocked monetary value
+            value: 50000, // Using mock value as schema lacks deal value
             confidence: latestConfidence,
             healthScore: health.score,
             riskLevel: risk.riskLevel,
@@ -27,6 +37,7 @@ export async function getMyDeals(userId: string): Promise<MyDeal[]> {
         };
     });
     
+    // Prioritization Logic
     // 1. Highest risk first
     // 2. Lowest confidence
     // 3. Longest inactivity
@@ -37,24 +48,23 @@ export async function getMyDeals(userId: string): Promise<MyDeal[]> {
     };
 
     mappedDeals.sort((a, b) => {
-        // Highest risk first
+        // 1. Highest risk first
         const riskA = riskWeight[a.riskLevel] || 0;
         const riskB = riskWeight[b.riskLevel] || 0;
         if (riskA !== riskB) {
             return riskB - riskA; // Descending
         }
         
-        // Lowest confidence first
+        // 2. Lowest confidence first
         if (a.confidence !== b.confidence) {
             return a.confidence - b.confidence; // Ascending
         }
         
-        // Longest inactivity (oldest date first)
+        // 3. Longest inactivity (oldest date first)
         const dateA = new Date(a.lastActivity).getTime();
         const dateB = new Date(b.lastActivity).getTime();
-        return dateA - dateB; // Ascending (older dates have smaller timestamp)
+        return dateA - dateB; // Ascending
     });
 
-    // Limit to top 5 most relevant deals requiring attention
-    return mappedDeals.slice(0, 5);
+    return mappedDeals;
 }

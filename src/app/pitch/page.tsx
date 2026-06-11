@@ -40,7 +40,7 @@ export default function GeneratedPitchPage() {
           // Generate new pitch
           const storedContext = sessionStorage.getItem("pitchContext")
           if (!storedContext) {
-            router.push("/setup")
+            router.push("/settings/context")
             return
           }
 
@@ -114,7 +114,7 @@ export default function GeneratedPitchPage() {
             <h3 className="text-lg font-semibold text-red-800 mb-2">Generation Failed</h3>
             <p className="text-sm text-red-600 mb-6">{error}</p>
             <div className="flex justify-center gap-4">
-              <Button onClick={() => router.push("/setup")} variant="outline">
+              <Button onClick={() => router.push("/settings/context")} variant="outline">
                 Back to Setup
               </Button>
               <Button onClick={() => window.location.reload()}>

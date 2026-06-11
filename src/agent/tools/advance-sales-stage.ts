@@ -5,6 +5,7 @@ import {
   getClient,
   saveClient,
   SalesStage,
+  invalidateSalesStageCaches
 } from "../../lib/db";
 
 export const advanceSalesStage = new FunctionTool({
@@ -118,6 +119,10 @@ export const advanceSalesStage = new FunctionTool({
     client.updatedAt = new Date().toISOString();
 
     await saveClient(client);
+
+    if (previousStage !== nextStage) {
+      invalidateSalesStageCaches();
+    }
 
     return {
       status: "success",

@@ -7,7 +7,11 @@ export async function POST(req: NextRequest) {
 
     if (!summary) return NextResponse.json({ error: "Missing summary" }, { status: 400 })
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+    const ai = new GoogleGenAI({
+      vertexai: true,
+      project: 'agent-project-496514',
+      location: 'us-central1'
+    })
 
     const prompt = `
 You are an elite B2B sales coach analyzing a recent sales call debrief.

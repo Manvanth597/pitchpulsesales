@@ -1,28 +1,42 @@
+/** 
+ * @deprecated LEGACY UNIFIED DASHBOARD API
+ * This endpoint is being replaced by the Workspace Architecture (/api/workspaces/...).
+ * Scheduled for future removal. Retained temporarily for safe rollback.
+ */
 import { NextRequest, NextResponse } from "next/server";
 import { getDashboardData } from "@/agent/dashboard/get-dashboard-data";
+import { UserRole } from "@/agent/dashboard/types";
 
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url);
-        // Using query parameters as a mock authentication pattern
-        // In a real app, you would verify the session/JWT and extract the role & userId
-        const roleParam = searchParams.get("role")?.toLowerCase();
         
-        let role: "executive" | "manager" = "executive"; // default
-        if (roleParam === "manager") {
-            role = "manager";
+        // TODO:
+        // Get authenticated user
+        // Get user role from session
+        const userId = "user-1";
+        
+        const roleParam = searchParams.get("role");
+        let role: UserRole = "sales_rep"; // default
+        
+        if (roleParam) {
+            if (roleParam === "sales_rep" || roleParam === "manager") {
+                role = roleParam as UserRole;
+            } else {
+                return NextResponse.json(
+                    { error: "Invalid role" },
+                    { status: 400 }
+                );
+            }
         }
 
-        // Mock userId since we don't have authentication
-        const userId = searchParams.get("userId") || "mock-user-1";
-
-        const dashboardData = await getDashboardData(role, userId);
+        const dashboardData = await getDashboardData(userId, role);
 
         return NextResponse.json(dashboardData);
     } catch (error: any) {
         console.error("Dashboard API Error:", error);
         return NextResponse.json(
-            { error: "Failed to load dashboard data", details: error.message },
+            { error: "Failed to load dashboard data" },
             { status: 500 }
         );
     }

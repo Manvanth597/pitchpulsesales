@@ -1,81 +1,102 @@
 import { getAllClients } from "@/lib/db";
 import { analyzeOpportunityRiskFromClient } from "@/agent/risk/analyze-opportunity-risk";
-import { calculateDealHealthFromClient } from "@/agent/analytics/calculate-deal-health";
-import { MyTask } from "@/types/dashboard";
+import { MyTask } from "./types";
 
+/**
+ * Dynamically generates tasks based on deal intelligence signals.
+ * Connects directly to the Opportunity Risk Engine and activity history.
+ */
 export async function getMyTasks(userId: string): Promise<MyTask[]> {
     const clients = await getAllClients();
+    
+    // Ignore closed won/lost deals
     const activeDeals = clients.filter(c => c.stage !== "closed_lost" && c.stage !== "closed_won");
     
-    const tasks: MyTask[] = [];
+    const tasks: (MyTask & { _lastActivityMs: number })[] = [];
     const now = Date.now();
     
     for (const client of activeDeals) {
         const risk = analyzeOpportunityRiskFromClient(client);
-        const health = calculateDealHealthFromClient(client);
+        
+        const latestConfidence = client.confidenceTrend.length > 0 
+            ? client.confidenceTrend[client.confidenceTrend.length - 1] 
+            : 5;
+            
+        // Confidence is stored as 1-10. Multiply by 10 to check against the < 50 threshold rule.
+        const confidencePercent = latestConfidence * 10;
+        
+        const timeSinceActivity = now - new Date(client.updatedAt).getTime();
+        const daysInactive = timeSinceActivity / (1000 * 60 * 60 * 24);
         
         let priority: MyTask["priority"] | null = null;
         let taskName = "";
         
-        // Use recommended actions or fallbacks
-        const recommendedAction = risk.recommendedActions.length > 0 ? risk.recommendedActions[0] : "Review deal strategy";
-
+        // We evaluate rules in descending order of priority severity.
+        // This implicitly deduplicates tasks for the same deal by keeping the highest priority one.
+        
+        // --- Critical Rules ---
         if (risk.riskLevel === "high") {
             priority = "critical";
-            taskName = recommendedAction;
-        } else if (risk.riskLevel === "medium") {
+            taskName = `Re-engage ${client.companyName} opportunity`;
+        } else if (daysInactive > 14) {
+            priority = "critical";
+            taskName = "Contact client immediately";
+        } else if ((client.stage as string) === "negotiation" && daysInactive > 5) {
+            priority = "critical";
+            taskName = "Schedule negotiation meeting";
+        } 
+        // --- High Rules ---
+        else if (risk.riskLevel === "medium") {
             priority = "high";
-            taskName = recommendedAction;
-        } else if (health.score < 50) {
+            taskName = "Review stakeholder engagement";
+        } else if (confidencePercent < 50) {
             priority = "high";
-            taskName = "Re-engage stakeholder";
-        } else {
-            const timeSinceUpdate = now - new Date(client.updatedAt).getTime();
-            const daysSinceUpdate = timeSinceUpdate / (1000 * 60 * 60 * 24);
-            
-            if (daysSinceUpdate > 7) {
-                priority = "medium";
-                taskName = `Follow up with ${client.companyName}`;
-            } else if (client.stage === "action") {
-                priority = "medium";
-                taskName = "Update proposal";
-            }
+            taskName = "Schedule qualification follow-up";
+        } else if ((client.stage as string) === "proposal" && daysInactive > 7) {
+            priority = "high";
+            taskName = "Follow up on proposal review";
         }
+        // No explicitly defined medium rules in the current requirements, but leaving room for expansion
         
         if (priority) {
-            // Set due date logic: Critical/High = Today, Medium = Tomorrow, Low = Next Week
-            const offsetDays = priority === "critical" || priority === "high" ? 0 : 1;
+            // Due date generation logic (critical = today, high = tomorrow, medium = in 2 days)
+            const offsetDays = priority === "critical" ? 0 : (priority === "high" ? 1 : 2);
             const dueDate = new Date(now + offsetDays * 86400000).toISOString();
             
             tasks.push({
                 priority,
                 task: taskName,
                 relatedDeal: client.companyName,
-                dueDate
+                clientId: client.id,
+                dueDate,
+                _lastActivityMs: new Date(client.updatedAt).getTime()
             });
         }
     }
     
-    // Sort tasks by priority
+    // Sort tasks
     const priorityWeight: Record<string, number> = {
-        critical: 4,
-        high: 3,
-        medium: 2,
-        low: 1
+        critical: 3,
+        high: 2,
+        medium: 1
     };
     
     tasks.sort((a, b) => {
         const pA = priorityWeight[a.priority] || 0;
         const pB = priorityWeight[b.priority] || 0;
         
+        // 1. Critical first, then high, then medium
         if (pA !== pB) {
-            return pB - pA; // Descending (Critical first)
+            return pB - pA; // Descending
         }
         
-        const dateA = new Date(a.dueDate).getTime();
-        const dateB = new Date(b.dueDate).getTime();
-        return dateA - dateB; // Ascending date
+        // 2. Within each group: oldest activity first
+        return a._lastActivityMs - b._lastActivityMs; // Ascending
     });
     
-    return tasks.slice(0, 10);
+    // Clean up temporary sorting property
+    return tasks.map(t => {
+        const { _lastActivityMs, ...cleanTask } = t;
+        return cleanTask;
+    });
 }

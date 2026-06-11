@@ -1,18 +1,19 @@
-import { getAllClients } from "@/lib/db";
+import { getAllClients, getDatabase } from "@/lib/db";
 import { calculateDealHealthFromClient } from "@/agent/analytics/calculate-deal-health";
-import { ExecutiveSummary } from "@/types/dashboard";
+import { ExecutiveSummary } from "./types";
+import { GoogleGenAI } from "@google/genai";
+import { getCachedInsightText } from "@/lib/cache-insights";
 
-export async function getExecutiveSummary(userId: string): Promise<ExecutiveSummary> {
+export async function getExecutiveSummary(): Promise<ExecutiveSummary> {
     const clients = await getAllClients();
     const activeDeals = clients.filter(c => c.stage !== "closed_lost" && c.stage !== "closed_won");
     
-    let totalHealth = 0;
     let healthyDeals = 0;
     let watchDeals = 0;
     let atRiskDeals = 0;
-    
-    let expectedRevenue = 0;
+    let totalHealth = 0;
     let totalConfidence = 0;
+    let expectedRevenue = 0;
     
     let totalPreviousHealth = 0;
     let dealsWithPreviousHealth = 0;
@@ -21,10 +22,6 @@ export async function getExecutiveSummary(userId: string): Promise<ExecutiveSumm
         const health = calculateDealHealthFromClient(client);
         totalHealth += health.score;
         
-        // Distribution based on requirement:
-        // Healthy >= 75
-        // Watch >= 50
-        // At Risk < 50
         if (health.score >= 75) {
             healthyDeals++;
         } else if (health.score >= 50) {
@@ -36,24 +33,22 @@ export async function getExecutiveSummary(userId: string): Promise<ExecutiveSumm
         const latestConfidence = client.confidenceTrend.length > 0 
             ? client.confidenceTrend[client.confidenceTrend.length - 1] 
             : 5;
-        
+            
         const previousConfidence = client.confidenceTrend.length > 1
             ? client.confidenceTrend[client.confidenceTrend.length - 2]
             : latestConfidence;
             
         totalConfidence += latestConfidence;
 
-        // Mock dealValue (e.g., 50000)
-        const mockDealValue = 50000;
+        // Using a mock deal value as it's not present in ClientMemory schema
+        const dealValue = 50000;
         
-        // expectedRevenue = dealValue * confidence%
-        // confidence is 1-10, so percentage is (confidence * 10) / 100 => confidence / 10
-        expectedRevenue += mockDealValue * (latestConfidence / 10);
+        // Sum: deal.value * (latestConfidence / 100)
+        // Note: latestConfidence is 1-10 in schema, but applying exact requested formula
+        expectedRevenue += dealValue * (latestConfidence / 100);
         
-        // Calculate a mock previous health based on previous confidence for trend
-        // If confidence dropped, health likely dropped. This is a heuristic since we don't store historical health scores explicitly.
+        // Mocking previous health to calculate a trend
         if (client.confidenceTrend.length > 1) {
-            // Rough approximation of previous health score relative to current
             const healthDiff = (latestConfidence - previousConfidence) * 5; 
             totalPreviousHealth += (health.score - healthDiff);
             dealsWithPreviousHealth++;
@@ -73,6 +68,22 @@ export async function getExecutiveSummary(userId: string): Promise<ExecutiveSumm
         }
     }
 
+    const db = getDatabase();
+    const { content: executiveSummaryText, usedCachedData } = await getCachedInsightText(
+        db.executiveInsightVersion || 0,
+        "executiveSummaryCache",
+        async () => {
+            const ai = new GoogleGenAI({
+      vertexai: true,
+      project: 'agent-project-496514',
+      location: 'us-central1'
+    });
+            const prompt = `Write a short 1-sentence executive summary. Pipeline health is ${pipelineHealthScore} and ${healthTrend}. Total deals: ${activeDeals.length}. Revenue expected: $${expectedRevenue}.`;
+            const res = await ai.models.generateContent({ model: "gemini-2.5-flash", contents: prompt });
+            return res.text || "Executive summary generated.";
+        }
+    );
+
     return {
         totalDeals: activeDeals.length,
         healthyDeals,
@@ -81,6 +92,9 @@ export async function getExecutiveSummary(userId: string): Promise<ExecutiveSumm
         pipelineHealthScore,
         expectedRevenue,
         avgConfidence,
-        healthTrend
+        healthTrend,
+        executiveSummaryText,
+        usedCachedData
     };
 }
+

@@ -38,6 +38,7 @@ export default function ImprovementPage() {
   const [data, setData] = useState<ImprovementData | null>(null)
   const [finalPitch, setFinalPitch] = useState<GeneratedPitch | null>(null)
   const [appliedSuggestions, setAppliedSuggestions] = useState<Set<number>>(new Set())
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchImprovement = async () => {
@@ -47,12 +48,16 @@ export default function ImprovementPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ clientId })
         })
-        if (!res.ok) throw new Error("Failed to generate improvement")
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}))
+          throw new Error(errData.details || errData.error || "Failed to generate improvement")
+        }
         const payload = await res.json()
         setData(payload)
         setFinalPitch(payload.fullImprovedPitch)
       } catch (err) {
         console.error(err)
+        setError(err instanceof Error ? err.message : "An error occurred")
       } finally {
         setIsLoading(false)
       }
@@ -97,11 +102,27 @@ export default function ImprovementPage() {
         })
       })
       if (!res.ok) throw new Error("Failed to apply evolution")
-      router.push(`/pitch`)
+      router.push(`/completion/${clientId}`)
     } catch (err) {
       console.error(err)
       setIsUpdating(false)
     }
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-zinc-50 flex flex-col">
+        <Navbar />
+        <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+          <div className="text-center space-y-4">
+            <XCircle className="h-12 w-12 text-red-500 mx-auto" />
+            <h2 className="text-xl font-semibold text-zinc-900">Error Generating Improvement</h2>
+            <p className="text-zinc-600">{error}</p>
+            <Button onClick={() => router.push(`/completion/${clientId}`)}>Go Back</Button>
+          </div>
+        </main>
+      </div>
+    )
   }
 
   if (isLoading || !data) {

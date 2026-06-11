@@ -1,3 +1,8 @@
+/** 
+ * @deprecated LEGACY UNIFIED DASHBOARD
+ * This UI is being replaced by the Workspace Architecture (/rep, /manager, /executive).
+ * Scheduled for future removal. Retained temporarily for safe rollback.
+ */
 import { Navbar } from "@/components/layout/Navbar"
 import { Card, CardContent } from "@/components/ui/card"
 

@@ -4,10 +4,13 @@ import { getClient } from "@/lib/db"
 import { loadSkillContext } from "@/agent/tools/load-skill-context"
 import { retrievePatterns } from "@/agent/learning/retrieve-patterns"
 import { calculateDealHealthFromClient } from "@/agent/analytics/calculate-deal-health"
+import { isQuotaError } from "@/lib/cache-insights"
 
 export async function POST(req: NextRequest) {
+  let clientId: string | undefined;
   try {
-    const { clientId } = await req.json()
+    const json = await req.json()
+    clientId = json.clientId
     if (!clientId) return NextResponse.json({ error: "Missing clientId" }, { status: 400 })
 
     const client = await getClient(clientId)
@@ -103,7 +106,11 @@ Return ONLY valid JSON in this exact format:
 }
 `
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+    const ai = new GoogleGenAI({
+      vertexai: true,
+      project: 'agent-project-496514',
+      location: 'us-central1'
+    })
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
@@ -133,7 +140,21 @@ Return ONLY valid JSON in this exact format:
 
     return NextResponse.json({ ...parsed, dealHealth })
   } catch (error) {
+    if (isQuotaError(error)) {
+      console.warn("Pulse Plan fallback triggered due to Gemini 429 Quota Error.");
+      const clientFallback = clientId ? await getClient(clientId).catch(() => null) : null;
+      return NextResponse.json({
+        recommendedOpener: "Focus on active listening and addressing the immediate customer context.",
+        discoveryQuestions: ["What are your primary goals for this quarter?", "How does our solution align with your timeline?"],
+        predictedObjections: ["Budget constraints", "Timing is not right"],
+        plannedResponses: ["Highlight ROI", "Focus on immediate value"],
+        confidenceInsights: ["Show empathy and expertise"],
+        tacticalSuggestions: ["Keep the conversation focused on value and next steps"],
+        dealHealth: clientFallback ? calculateDealHealthFromClient(clientFallback) : 50,
+        isFallback: true
+      });
+    }
     console.error("Generate Pulse Plan Error:", error)
-    return NextResponse.json({ error: "Failed to generate pulse plan" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to generate pulse plan", details: error instanceof Error ? error.message : String(error), isQuota: isQuotaError(error) }, { status: 500 })
   }
 }

@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { DealOutcome } from '@/agent/learning/types'
 
 export type SalesStage = 'awareness' | 'interest' | 'desire' | 'action' | 'closed_won' | 'closed_lost'
 
@@ -93,9 +94,29 @@ export interface SalesPattern {
   lastUpdated: string;
 }
 
+export interface CachedInsight {
+  content: string;
+  generatedAt: string;
+  sourceVersion: number;
+}
+
 export interface DbSchema {
   clients: ClientMemory[]
   salesPatterns: SalesPattern[]
+  dealOutcomes?: DealOutcome[]
+
+  teamInsightVersion?: number;
+  executiveInsightVersion?: number;
+  learningInsightVersion?: number;
+  coachingInsightVersion?: number;
+  forecastInsightVersion?: number;
+
+  teamSummaryCache?: CachedInsight;
+  executiveSummaryCache?: CachedInsight;
+  learningSummaryCache?: CachedInsight;
+  actionSummaryCache?: CachedInsight;
+  coachingSummaryCache?: CachedInsight;
+  forecastSummaryCache?: CachedInsight;
 }
 
 const dbPath = path.join(process.cwd(), 'data', 'db.json')
@@ -138,7 +159,17 @@ function ensureDb() {
 export async function getAllClients(): Promise<ClientMemory[]> {
   ensureDb()
   const data = fs.readFileSync(dbPath, 'utf8')
-  return JSON.parse(data).clients || []
+  const clients: ClientMemory[] = JSON.parse(data).clients || []
+  
+  // Hydrate missing arrays for backwards compatibility with old records
+  return clients.map(client => ({
+    ...client,
+    pulsePlans: client.pulsePlans || [],
+    debriefs: client.debriefs || [],
+    evolutionHistory: client.evolutionHistory || [],
+    objectionHistory: client.objectionHistory || [],
+    confidenceTrend: client.confidenceTrend || []
+  }))
 }
 
 export async function getClient(id: string): Promise<ClientMemory | null> {
@@ -198,5 +229,28 @@ export function getDatabase(): DbSchema {
 export function saveDatabase(db: DbSchema): void {
   ensureDb()
   fs.writeFileSync(dbPath, JSON.stringify(db, null, 2))
+}
+
+export function invalidateDebriefCaches() {
+  const db = getDatabase();
+  db.learningInsightVersion = (db.learningInsightVersion || 0) + 1;
+  db.coachingInsightVersion = (db.coachingInsightVersion || 0) + 1;
+  db.teamInsightVersion = (db.teamInsightVersion || 0) + 1;
+  saveDatabase(db);
+}
+
+export function invalidateEvolutionCaches() {
+  const db = getDatabase();
+  db.learningInsightVersion = (db.learningInsightVersion || 0) + 1;
+  db.coachingInsightVersion = (db.coachingInsightVersion || 0) + 1;
+  db.executiveInsightVersion = (db.executiveInsightVersion || 0) + 1;
+  saveDatabase(db);
+}
+
+export function invalidateSalesStageCaches() {
+  const db = getDatabase();
+  db.forecastInsightVersion = (db.forecastInsightVersion || 0) + 1;
+  db.executiveInsightVersion = (db.executiveInsightVersion || 0) + 1;
+  saveDatabase(db);
 }
 
