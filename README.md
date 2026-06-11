@@ -78,12 +78,51 @@ Dedicated workspaces for different roles:
    \`\`\`
 
 3. **Environment Variables:**
-   Create a \`.env.local\` file in the root directory and add the necessary configuration. *Note: Ensure your GCP Project is configured for Vertex AI.*
-   \`\`\`env
-   GOOGLE_CLOUD_PROJECT="your-project-id"
-   GOOGLE_CLOUD_LOCATION="us-central1"
-   # Add other required variables as needed
-   \`\`\`
+## Environment Setup
+
+This project requires a Google Gemini API key to enable AI-powered pitch generation, forecasting, coaching recommendations, and revenue intelligence features.
+
+### 1. Create a Gemini API Key
+
+Visit Google AI Studio and generate an API key.
+
+### 2. Create a Local Environment File
+
+Create a `.env.local` file in the project root:
+
+```env
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the Application
+
+```bash
+npm run dev
+```
+
+### Deploying to Vercel
+
+Add the following environment variable in the Vercel Dashboard:
+
+```env
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+Navigate to:
+
+Project Settings → Environment Variables
+
+Then redeploy the application.
+
+### Security Notice
+
+Do not commit API keys, service account credentials, or `.env` files to GitHub. The repository includes `.env.example` as a template only.
 
 4. **Run the development server:**
    \`\`\`bash
