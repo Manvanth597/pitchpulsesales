@@ -57,13 +57,9 @@ Dedicated workspaces for different roles:
 - **AI/ML:** Google Vertex AI (Gemini 2.5 Flash)
 - **Deployment:** Google Cloud Run (Target Architecture)
 
-## Screenshots
-
-*(Placeholder for Screenshots)*
-
 ## Demo Video
 
-[Watch the Demo on YouTube](https://youtube.com) *(Placeholder)*
+[Watch the Demo on YouTube](https://youtu.be/sft2CbMcejs?si=9CSWogwZAend3-Lc)
 
 ## Local Setup
 
